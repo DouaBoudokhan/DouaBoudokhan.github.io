@@ -384,8 +384,8 @@ section#competences>ul {
 .cols {
     grid-column: 1/-1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.4rem
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
 }
 
 .cols>div {
