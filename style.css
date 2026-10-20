@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --navy: #1e3a6e;
+    --deep: #162a52;
+    --blue: #5b8aff;
+    --ink: #2a2f3a;
+    --mid: #7b8494;
+    --line: #e4e8f0;
+    --bg: #f0f2f7;
+    --card: #fff;
+    --sky: #edf1fa;
+    --shadow: 0 2px 16px rgba(30, 58, 110, .06);
+    --shadow-hover: 0 6px 28px rgba(30, 58, 110, .1);
+    --radius: 16px;
+    --transition: .25s cubic-bezier(.4, 0, .2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font: 16px/1.7 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh
+}
+
+img {
+    max-width: 100%
+}
+
+a {
+    color: var(--navy);
+    text-underline-offset: 3px;
+    transition: color var(--transition), opacity var(--transition);
+}
+
+a:hover {
+    color: var(--blue);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px
+}
+
+[hidden] {
+    display: none !important
+}
+
+/* Colonne latérale */
+aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(170deg, #1a3264 0%, #162a52 40%, #0f1f3d 100%);
+    color: #fff;
+    padding: 2.8rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.1rem
+}
+
+aside a {
+    color: #fff
+}
+
+aside img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border: 4px solid rgba(255, 255, 255, .25);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .2);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+aside img:hover {
+    transform: scale(1.04);
+    border-color: rgba(255, 255, 255, .45);
+}
+
+aside h1 {
+    font: 700 1.8rem/1.15 'Playfair Display', Georgia, serif;
+    letter-spacing: -.01em;
+}
+
+.tagline {
+    font-size: .95rem;
+    opacity: .88;
+    line-height: 1.5;
+}
+
+.status {
+    font-size: .82rem;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .22);
+    padding: .35rem 1rem;
+    border-radius: 99px;
+    backdrop-filter: blur(4px);
+    transition: background var(--transition);
+}
+
+.status:hover {
+    background: rgba(255, 255, 255, .16);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    width: 100%;
+    margin-top: .8rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, .12)
+}
+
+nav a {
+    text-decoration: none;
+    opacity: .75;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 500;
+    transition: opacity var(--transition), background var(--transition), transform var(--transition);
+}
+
+nav a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, .1);
+    transform: translateX(3px);
+}
+
+.contact {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    font-size: .9rem;
+    width: 100%;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, .12)
+}
+
+/* Contenu */
+main {
+    padding: 3.5rem clamp(1.6rem, 5vw, 4rem);
+    max-width: 1040px;
+    width: 100%;
+    justify-self: center
+}
+
+section {
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.4rem;
+    align-items: stretch
+}
+
+section>* {
+    min-width: 0
+}
+
+h2 {
+    grid-column: 1/-1;
+    font: 700 1.7rem 'Playfair Display', Georgia, serif;
+    color: var(--navy);
+    padding-bottom: .6rem;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: .6rem;
+    letter-spacing: -.01em;
+}
+
+h3 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.lead {
+    grid-column: 1/-1;
+    font: 1.25rem/1.6 'Playfair Display', Georgia, serif;
+    max-width: none;
+    color: var(--ink);
+}
+
+.meta {
+    color: var(--mid);
+    font-size: .88rem;
+    font-weight: 500;
+}
+
+.item,
+.proj,
+.award,
+.cert,
+.skills {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.item:hover,
+.proj:hover,
+.award:hover,
+.cert:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Symétrie : 3 colonnes (formation, certificats), 2 colonnes (projets, réalisations) */
+.item,
+.cert {
+    grid-column: span 2
+}
+
+.proj,
+.award {
+    grid-column: span 3
+}
+
+/* Experience blocks match project block style (2 per row) */
+#experience .item {
+    grid-column: span 3
+}
+
+#experience .item:last-of-type:nth-of-type(odd) {
+    grid-column: 1/-1
+}
+
+.proj:last-of-type:nth-of-type(odd) {
+    grid-column: 1/-1
+}
+
+.item,
+.proj,
+.award {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.proj ul,
+.item ul {
+    padding-left: 1.1rem
+}
+
+.item .tags {
+    margin-top: .6rem
+}
+
+/* ==============================
+   Gallery — uniform image sizes
+   ============================== */
+.gallery {
+    order: -1;
+    display: flex;
+    gap: .6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 1rem;           /* ← space between images and text */
+    border-radius: 10px;
+}
+
+.gallery:not(:has(img:not([hidden]))) {
+    display: none
+}
+
+.gallery img {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    height: 220px;                  /* ← uniform fixed height */
+    width: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--sky);
+    transition: transform var(--transition);
+}
+
+.gallery img:hover {
+    transform: scale(1.01);
+}
+
+.award>b {
+    font: 700 2.2rem/1 'Playfair Display', Georgia, serif;
+    color: var(--blue)
+}
+
+/* ==============================
+   Figures — uniform image sizes
+   ============================== */
+figure {
+    margin: .6rem 0 0
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: 220px;                  /* ← same uniform height as gallery */
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--sky);
+    transition: transform var(--transition);
+}
+
+figure img:hover {
+    transform: scale(1.01);
+}
+
+.skills {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: .7rem 1.5rem;
+    padding: 1.4rem
+}
+
+.skills dt {
+    font-weight: 700;
+    color: var(--navy)
+}
+
+.skills dd {
+    margin: 0
+}
+
+section#competences>h3 {
+    grid-column: 1/-1;
+    margin-top: .8rem;
+    font: 700 1.25rem 'Playfair Display', Georgia, serif;
+    color: var(--navy)
+}
+
+section#competences>ul {
+    display: none
+}
+
+.certs {
+    display: contents
+}
+
+.cert {
+    padding: 1.2rem;
+    font-size: .92rem
+}
+
+.cert figure {
+    margin: 0 0 .7rem
+}
+
+.cert img {
+    aspect-ratio: auto;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    background: none;
+    border-radius: 0
+}
+
+.cert b {
+    display: block;
+    line-height: 1.35;
+    margin-bottom: .3rem
+}
+
+.cols {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem
+}
+
+.cols>div {
+    background: var(--sky);
+    border-radius: var(--radius);
+    padding: 1.4rem
+}
+
+.cols h3 {
+    margin-bottom: .5rem
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem
+}
+
+.tags span {
+    font-size: .78rem;
+    background: var(--sky);
+    color: var(--navy);
+    padding: .15rem .7rem;
+    border-radius: 99px;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+}
+
+.tags span:hover {
+    background: var(--navy);
+    color: #fff;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem 1.2rem;
+    font-size: .92rem;
+    margin-top: auto;
+    padding-top: .6rem
+}
+
+.links a {
+    font-weight: 600;
+    padding: .25rem 0
+}
+
+footer {
+    color: var(--mid);
+    font-size: .85rem;
+    text-align: center;
+    padding-bottom: 2.5rem;
+    padding-top: 1rem;
+}
+
+@media(max-width:1100px) {
+    .item {
+        grid-column: 1/-1
+    }
+
+    .cert {
+        grid-column: span 3
+    }
+}
+
+@media(max-width:860px) {
+    body {
+        display: block
+    }
+
+    aside {
+        position: static;
+        height: auto;
+        padding: 1.6rem 1.4rem;
+        gap: .7rem
+    }
+
+    aside img {
+        width: 110px;
+        height: 110px
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .2rem .8rem
+    }
+
+    .contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .3rem 1.1rem
+    }
+
+    nav a,
+    .contact a {
+        padding: .45rem .3rem
+    }
+
+    main {
+        padding: 2.5rem 1.3rem
+    }
+}
+
+@media(max-width:640px) {
+
+    .proj,
+    .award,
+    .cert {
+        grid-column: 1/-1
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+        gap: .1rem
+    }
+
+    .skills dd {
+        margin-bottom: .6rem
+    }
+
+    .cols {
+        grid-template-columns: 1fr
+    }
+
+    h2 {
+        font-size: 1.45rem
+    }
+
+    .gallery img,
+    figure img {
+        height: 180px;             /* slightly shorter on mobile */
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+.proj ul,
+.award ul,
+.cols ul,
+ul.lead,
+.item ul {
+    padding-left: 1.1rem
+}
+
+li {
+    margin-bottom: .3rem
+}
+
+ul.lead li {
+    margin-bottom: .5rem
+}
+
+main p,
+main li,
+.skills dd {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto
+}
+
+.links,
+.tags,
+.meta {
+    text-align: left
+}
+
+.item .logo {
+    height: 44px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    object-position: left center;
+    margin-bottom: .5rem
+}
+
+.item .logo {
+    margin-bottom: 1.2rem
+}
+
+.award>div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: .5rem
+}
+
+.award figure {
+    order: -1;
+    margin: .4rem 0 .8rem
+}
+
+.award .links {
+    margin-top: auto
+}
+
+.gallery.phones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .6rem;
+    overflow: visible;
+    background: var(--sky);
+    border-radius: 10px;
+    padding: .5rem
+}
+
+.gallery.phones img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    background: none
+}
